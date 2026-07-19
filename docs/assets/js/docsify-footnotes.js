@@ -8,13 +8,13 @@
      * Find footnote definitions inside paragraphs
      */
     html = html.replace(
-      /<p>\[\^(\d+)\]:\s*(.*?)<\/p>/gs,
+      /\[\^(\d+)\]:\s*([^<\n]+)/g,
       function(match, id, text) {
-
-        notes[id] = text;
-
+    
+        notes[id] = text.trim();
+    
         return "";
-
+    
       }
     );
 
